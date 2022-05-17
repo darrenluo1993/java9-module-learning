@@ -1,0 +1,13 @@
+debug:
+    true
+server:
+    port: 8888
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/springboot?autoReconnectForPools=true&useUnicode=true&characterEncoding=UTF-8&useServerPrepStmts=true&tinyInt1isBit=false&useSSL=false
+        username: root
+        password: abc123
+mybatis:
+    mapper-locations: classpath*:mapper/**/*Mapper.xml
+    type-aliases-package: pers.darren.dao.**.model

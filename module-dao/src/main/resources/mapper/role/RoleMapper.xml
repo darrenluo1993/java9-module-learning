@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.darren.dao.role.RoleMapper">
+    <!-- 创建人：Darren Luo -->
+    <!-- 创建时间：2022年5月13日 16时31分 -->
+    <!-- 用途描述：根据参数值有选择性的更新角色信息 -->
+    <update id="modifyRoleSelectiveById" parameterType="pers.darren.dao.role.model.Role">
+        update
+            role
+        set
+            <if test="roleName != null and roleName != ''">
+                role_name = #{roleName,jdbcType=VARCHAR},
+            </if>
+            <if test="roleDesc != null and roleDesc != ''">
+                role_desc = #{roleDesc,jdbcType=VARCHAR},
+            </if>
+            modified_by = #{modifiedBy,jdbcType=VARCHAR},
+            modified_time = #{modifiedTime,jdbcType=TIMESTAMP}
+        where
+            id = #{id,jdbcType=VARCHAR}
+    </update>
+
+    <resultMap id="Role" type="pers.darren.dao.role.model.Role">
+        <id property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="roleName" column="role_name" jdbcType="VARCHAR"/>
+        <result property="roleDesc" column="role_desc" jdbcType="VARCHAR"/>
+        <result property="createdBy" column="created_by" jdbcType="VARCHAR"/>
+        <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+        <result property="modifiedBy" column="modified_by" jdbcType="VARCHAR"/>
+        <result property="modifiedTime" column="modified_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+</mapper>
