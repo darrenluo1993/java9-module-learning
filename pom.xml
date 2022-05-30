@@ -6,57 +6,60 @@
 
     <groupId>pers.darren</groupId>
     <artifactId>java9-module-learning</artifactId>
-    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <modules>
         <module>module-common</module>
-        <module>module-web</module>
-        <module>module-service</module>
-        <module>module-dao</module>
         <module>module-framework</module>
+        <module>module-dao</module>
+        <module>module-service</module>
+        <module>module-web</module>
+        <module>module-test</module>
     </modules>
 
     <properties>
-        <project.version>1.0-SNAPSHOT</project.version>
+        <druid.starter.version>1.2.9</druid.starter.version>
+        <google.guava.version>31.1-jre</google.guava.version>
+        <jackson.databind.version>2.13.2.1</jackson.databind.version>
+        <jackson.version>2.13.2</jackson.version>
+        <log4j.version>2.17.2</log4j.version>
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.boot.version>2.6.7</spring.boot.version>
-        <log4j.version>2.17.2</log4j.version>
-        <slf4j.version>2.0.0-alpha7</slf4j.version>
-        <jackson.version>2.13.2</jackson.version>
-        <jackson.databind.version>2.13.2.1</jackson.databind.version>
+        <maven.compiler.version>3.10.1</maven.compiler.version>
         <mybatis.starter.version>2.2.2</mybatis.starter.version>
-        <google.guava.version>31.1-jre</google.guava.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <slf4j.version>2.0.0-alpha7</slf4j.version>
+        <spring.boot.version>2.6.7</spring.boot.version>
+        <thisproj.version>1.0-SNAPSHOT</thisproj.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>pers.darren</groupId>
+                <groupId>pers.darren.common</groupId>
                 <artifactId>module-common</artifactId>
-                <version>${project.version}</version>
+                <version>${thisproj.version}</version>
             </dependency>
             <dependency>
-                <groupId>pers.darren</groupId>
+                <groupId>pers.darren.framework</groupId>
                 <artifactId>module-framework</artifactId>
-                <version>${project.version}</version>
+                <version>${thisproj.version}</version>
             </dependency>
             <dependency>
-                <groupId>pers.darren</groupId>
+                <groupId>pers.darren.dao</groupId>
                 <artifactId>module-dao</artifactId>
-                <version>${project.version}</version>
+                <version>${thisproj.version}</version>
             </dependency>
             <dependency>
-                <groupId>pers.darren</groupId>
+                <groupId>pers.darren.service</groupId>
                 <artifactId>module-service</artifactId>
-                <version>${project.version}</version>
+                <version>${thisproj.version}</version>
             </dependency>
             <dependency>
-                <groupId>pers.darren</groupId>
+                <groupId>pers.darren.web</groupId>
                 <artifactId>module-web</artifactId>
-                <version>${project.version}</version>
+                <version>${thisproj.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -86,10 +89,39 @@
                 <version>${mybatis.starter.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.starter.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${google.guava.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.version}</version>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                        <compilerArgs>
+                            <arg>-Xlint:unchecked</arg>
+                        </compilerArgs>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring.boot.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>

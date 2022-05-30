@@ -9,25 +9,36 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>pers.darren.service</groupId>
     <artifactId>module-service</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
     <dependencies>
         <dependency>
-            <groupId>pers.darren</groupId>
+            <groupId>pers.darren.common</groupId>
             <artifactId>module-common</artifactId>
         </dependency>
         <dependency>
-            <groupId>pers.darren</groupId>
+            <groupId>pers.darren.framework</groupId>
             <artifactId>module-framework</artifactId>
         </dependency>
         <dependency>
-            <groupId>pers.darren</groupId>
+            <groupId>pers.darren.dao</groupId>
             <artifactId>module-dao</artifactId>
         </dependency>
     </dependencies>
 
-    <properties>
-        <maven.compiler.source>18</maven.compiler.source>
-        <maven.compiler.target>18</maven.compiler.target>
-    </properties>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
