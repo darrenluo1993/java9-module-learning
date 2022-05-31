@@ -2,7 +2,6 @@ module module.web {
     requires module.common;
     requires module.service;
 
-    requires org.mybatis.spring;
     requires spring.web;
     requires spring.boot;
     requires spring.beans;
@@ -10,6 +9,6 @@ module module.web {
     requires spring.boot.autoconfigure;
 
     opens pers.darren to spring.beans, spring.core, spring.context;
-    opens pers.darren.controller.role to spring.beans;
-    opens pers.darren.controller.user to spring.beans;
+    opens pers.darren.controller.role to spring.beans, spring.core;
+    opens pers.darren.controller.user to spring.beans, spring.core;
 }
