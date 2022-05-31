@@ -9,6 +9,6 @@ module module.web {
     requires spring.boot.autoconfigure;
 
     opens pers.darren to spring.beans, spring.core, spring.context;
-    opens pers.darren.controller.role to spring.beans, spring.core;
-    opens pers.darren.controller.user to spring.beans, spring.core;
+    opens pers.darren.controller.role to spring.beans, spring.core, spring.web;
+    opens pers.darren.controller.user to spring.beans, spring.core, spring.web;
 }
