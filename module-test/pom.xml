@@ -14,6 +14,17 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>pers.darren.common</groupId>
+            <artifactId>module-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>pers.darren.dao</groupId>
+            <artifactId>module-dao</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>

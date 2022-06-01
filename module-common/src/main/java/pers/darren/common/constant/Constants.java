@@ -17,4 +17,8 @@ public final class Constants {
      * 通用失败标识
      */
     public static final String FAIL = "1";
+    /**
+     * Content-Type: application/json
+     */
+    public static final String APPLICATION_JSON = "application/json";
 }

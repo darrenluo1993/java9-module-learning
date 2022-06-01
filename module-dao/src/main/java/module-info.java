@@ -1,6 +1,6 @@
 module module.dao {
-    requires org.mybatis;
     requires java.sql;
+    requires org.mybatis;
 
     exports pers.darren.dao.user.model;
     exports pers.darren.dao.role.model;
