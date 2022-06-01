@@ -6,6 +6,8 @@ import pers.darren.dao.user.UserMapper;
 import pers.darren.dao.user.model.User;
 import pers.darren.service.user.IUserService;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements IUserService {
 
@@ -15,5 +17,15 @@ public class UserServiceImpl implements IUserService {
     @Override
     public User getUserById(String id) {
         return this.userMapper.getUserById(id);
+    }
+
+    @Override
+    public List<User> listAllUser() {
+        return this.userMapper.listAllUser();
+    }
+
+    @Override
+    public void addUser(User user) {
+        this.userMapper.addUser(user);
     }
 }
