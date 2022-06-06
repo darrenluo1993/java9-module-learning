@@ -1,9 +1,6 @@
 package pers.darren.dao.user;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import pers.darren.dao.user.model.User;
 
 import java.util.List;
@@ -54,9 +51,7 @@ public interface UserMapper {
                 gender,
                 age,
                 created_by,
-                created_time,
-                modified_by,
-                modified_time)
+                created_time)
             values
                (#{id,jdbcType=VARCHAR},
                 #{username,jdbcType=VARCHAR},
@@ -64,9 +59,21 @@ public interface UserMapper {
                 #{gender,jdbcType=VARCHAR},
                 #{age,jdbcType=INTEGER},
                 #{createdBy,jdbcType=VARCHAR},
-                #{createdTime,jdbcType=TIMESTAMP},
-                #{modifiedBy,jdbcType=VARCHAR},
-                #{modifiedTime,jdbcType=TIMESTAMP})
+                #{createdTime,jdbcType=TIMESTAMP})
             """)
     int addUser(User user);
+
+    @Update("""
+            update
+                user
+            set
+                realname = #{realname,jdbcType=VARCHAR},
+                gender = #{gender,jdbcType=VARCHAR},
+                age = #{age,jdbcType=INTEGER},
+                modified_by = #{modifiedBy,jdbcType=VARCHAR},
+                modified_time = #{modifiedTime,jdbcType=TIMESTAMP}
+            where
+                id = #{id,jdbcType=VARCHAR}
+            """)
+    int modifyUserById(User user);
 }

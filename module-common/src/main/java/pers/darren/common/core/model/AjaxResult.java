@@ -98,6 +98,36 @@ public class AjaxResult extends HashMap<String, Object> {
     }
 
     /**
+     * 获取状态码
+     *
+     * @CreatedBy Darren Luo
+     * @CreatedTime 6/2/22 4:08 PM
+     */
+    public int getCode() {
+        return (int) super.get(CODE_TAG);
+    }
+
+    /**
+     * 获取消息内容
+     *
+     * @CreatedBy Darren Luo
+     * @CreatedTime 6/2/22 4:04 PM
+     */
+    public String getMsg() {
+        return (String) super.get(MSG_TAG);
+    }
+
+    /**
+     * 获取载体数据
+     *
+     * @CreatedBy Darren Luo
+     * @CreatedTime 6/2/22 4:00 PM
+     */
+    public Object getData() {
+        return super.get(DATA_TAG);
+    }
+
+    /**
      * 返回成功消息
      *
      * @return 成功消息

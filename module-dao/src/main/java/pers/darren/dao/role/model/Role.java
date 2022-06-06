@@ -1,5 +1,7 @@
 package pers.darren.dao.role.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -31,6 +33,7 @@ public class Role implements Serializable {
     /**
      * 创建时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createdTime;
 
     /**
@@ -41,6 +44,7 @@ public class Role implements Serializable {
     /**
      * 修改时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date modifiedTime;
 
     private static final long serialVersionUID = 1L;

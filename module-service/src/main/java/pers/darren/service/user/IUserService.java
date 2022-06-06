@@ -11,4 +11,6 @@ public interface IUserService {
     List<User> listAllUser();
 
     void addUser(User user);
+
+    void modifyUserById(User user);
 }

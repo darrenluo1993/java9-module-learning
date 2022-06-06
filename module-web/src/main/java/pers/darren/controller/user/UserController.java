@@ -36,4 +36,11 @@ public class UserController extends BaseController {
         this.userService.addUser(user);
         return success("新增成功");
     }
+
+    @PostMapping("/modifyUserById")
+    public AjaxResult modifyUserById(@RequestBody User user) {
+        user.setModifiedTime(new Date());
+        this.userService.modifyUserById(user);
+        return success("修改成功");
+    }
 }

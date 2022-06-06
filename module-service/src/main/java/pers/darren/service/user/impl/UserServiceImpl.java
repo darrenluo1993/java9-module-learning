@@ -28,4 +28,9 @@ public class UserServiceImpl implements IUserService {
     public void addUser(User user) {
         this.userMapper.addUser(user);
     }
+
+    @Override
+    public void modifyUserById(User user) {
+        this.userMapper.modifyUserById(user);
+    }
 }
