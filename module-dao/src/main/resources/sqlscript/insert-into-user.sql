@@ -1,0 +1,1 @@
+INSERT INTO springboot.user (id, username, realname, gender, age, created_by, created_time, modified_by, modified_time) VALUES ('150bd91a-c839-41c7-bd45-9dd60df561d7', 'darrenluo1993', 'Lisa Luo', '女', 21, '1', '2024-12-16 10:15:18', '1', '2024-12-16 10:17:50');
